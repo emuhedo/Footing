@@ -7,13 +7,12 @@
 	<a href="https://opensource.org/licenses/MIT" alt="License:MIT"><img src="https://img.shields.io/badge/License-MIT-blue.svg"></a>
 </p>
 
-__README CURRENTLY BEING UPDATED FOR MONGO VERSION OF FOOTING__
 
 Footing is a foundation for developing APIs with Node.js and Express. The project is designed in a way to make it easy for developers to build secure APIs with minimal setup. Footing provides the ability to define public or private routes with or without CSRF protection. 
 
 Routes that are predefined and come with Footing include ones that allow registering users, authenticating users, and deleting users. Routes for testing CSRF and authentication functionality are also included. 
 
-Footing's purpose is to enable developers to create APIs without needing to implement an authentication system. 
+Footing's purpose is to enable developers to create APIs without needing to implement an authentication system.
 
 # Index
 - ### [What's Included?](#included) 
@@ -62,8 +61,8 @@ Footing __does  not  include__...
 # Requirements
 
 Requirements for developing REST APIs with Footing include...
-- MySQL database (used for application data).
-- MongoDB database (used for managing sessions).
+- 1 MongoDB database used for application data.
+- 1 MongoDB database used for managing sessions.
 - Node.js ( >= v8.11.1, it's recommended to be used with v10.15.1)
 
 __Disclaimer:__ Integration tests have been tested for Node.js  v10.15.3. The project was originally developed using Node.js v8.11.1; however, the integration tests will fail on v8.11.1 due to the version of npm package `supertest` that v8.11.1 uses. That specific version of `supertest` has an issue making requests and receiving responses that include more than one cookie. 
@@ -76,7 +75,7 @@ __Disclaimer:__ Integration tests have been tested for Node.js  v10.15.3. The pr
 2. Run `npm install` to install the dependencies.
 3. Duplicate the `.env.dist` file and rename it to `.env`
 4. Open the `.env` file and set the values for the environment variables (suggested/default values are included).
-5. Make sure that MySQL and MongoDB servers are running.
+5. Make sure that the MongoDB server is running.
 6. (Optional) Run `npm test` to make sure the project is working correctly.
 7. Run `npm start` to start the server. 
 
@@ -89,21 +88,16 @@ __Disclaimer:__ Integration tests have been tested for Node.js  v10.15.3. The pr
 ### Environment Variables
 To configure environment variables, duplicate the `.env.dist` file and rename it to `.env`. Environment variables are predefined with default values. Change them as needed. The variables are used for...
 - Defining the port to serve the application on.
-- Setting up a connection to a MySQL database.
-- Setting up a connection to a MongoDB database.
+- Setting up a connection to a MongoDB databases.
 - Deciding on salt rounds for hashing passwords.
 - Deciding on a secret for session data. 
 
 
 Environment variables included are...
 - __PORT__ - Port the application will be served on.
-- __MySQL_HOST__ - Host for MySQL connection. 
-- __MySQL_PORT__ - Port for MySQL connection. The default is 3306.  
-- __MySQL_USER__ - User for MySQL connection. 
-- __MySQL_PWD__ - Password for MySQL connection.
-- __MySQL_DB__ - Database name for MySQL database.
-- __MySQL_USERS_TBL__ - The name of the table that stores user entities in the MySQL database.
-- __MongoDB_URI__ - The URI of the MongoDB database used for sessions.
+- __MongoDB_URI_APP__ - The URI of the MongoDB database used for application data.
+- __MongoDB_URI_SESS__ - The URI of the MongoDB database used for sessions.
+- __MongoDB_USERS_COLLECTION__ - The name of the collection which users are stored in.
 - __BCRYPT_SALT_ROUNDS__ - Salt rounds for Bcrypt to hash passwords. 
 - __SESSION_SECRET__ - Secret for Express sessions. 
 
